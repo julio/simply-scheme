@@ -61,9 +61,19 @@
 
 ;;; initials
 ;;;
-;;; (intials '(the beatles)) => (T B)
+;;; (initials '(the beatles)) => (T B)
 
 (define (initials sent)
   (if (eq? '() sent)
     sent
     (se (first (first sent)) (initials (bf sent)))))
+    
+;;; copies
+;;;
+;;; (copies 3 'spam) => (spam spam spam)
+
+(define (copies n wd)
+  (if (= 0 n)
+    '()
+    (se wd (copies (- n 1) wd))))
+    
