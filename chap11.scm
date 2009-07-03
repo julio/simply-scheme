@@ -31,3 +31,12 @@
     wd
     (se (word (first wd) (first (bf wd))) (letter-pairs (bf (bf wd))))))
     
+;;; (count-ums sent) => counts the number of times some says "um"
+
+(define (count-ums sent)
+  (if (= 0 (count sent))
+    0
+    (let ((inc (if (eq? 'um (first sent)) 1 0)))
+      (+ inc (count-ums (bf sent))))))
+      
+            
