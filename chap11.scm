@@ -58,6 +58,12 @@
   (if (= 0 (count wd))
     wd
     (word (unspell-letter (first wd)) (phone-unspell (bf wd)))))
-    
-  
-            
+
+;;; initials
+;;;
+;;; (intials '(the beatles)) => (T B)
+
+(define (initials sent)
+  (if (eq? '() sent)
+    sent
+    (se (first (first sent)) (initials (bf sent)))))
