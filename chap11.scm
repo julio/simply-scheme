@@ -23,3 +23,11 @@
   (if (= 0 (count wd))
     '()
     (se (first wd) (explode (bf wd)))))
+
+;;; (letter-pairs wd) => (letter-pairs 'foo) => fo o
+
+(define (letter-pairs wd)
+  (if (< (count wd) 3)
+    wd
+    (se (word (first wd) (first (bf wd))) (letter-pairs (bf (bf wd))))))
+    
