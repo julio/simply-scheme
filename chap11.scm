@@ -17,4 +17,9 @@
     (word wd 'ay)
     (pigl (word (bf wd) (first wd)))))
     
-    
+;;; (explode 'foo) => f o o
+
+(define (explode wd)
+  (if (= 0 (count wd))
+    '()
+    (se (first wd) (explode (bf wd)))))
