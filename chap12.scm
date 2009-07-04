@@ -18,3 +18,16 @@
   (if (< (count sent) 2)
     '()
     (se (first (bf sent)) (evens (bf (bf sent))))))
+
+;;; exaggerate statements
+
+(define (exaggerate-item wd)
+  (cond ((number? wd) (* wd 2))
+        ((eq? 'good wd) 'great)
+        ((eq? 'bad wd) 'terrible)
+        (else wd)))
+
+(define (exaggerate sent)
+  (if (eq? sent '())
+    sent
+    (se (exaggerate-item (first sent)) (exaggerate (bf sent)))))
