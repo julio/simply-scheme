@@ -57,5 +57,5 @@
 ;;; (describe-time 4967189641) => (1 centuries 57 years 20 weeks 6 days 8 hours 54 minutes 1 seconds)
 
 (define (describe-time seconds)
- ;;;
+ ;;; do code here
 )
