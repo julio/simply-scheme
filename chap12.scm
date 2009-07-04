@@ -43,11 +43,19 @@
       (+ (arabic-value (first roman)) (arabic (bf roman))))))
 
 (define (arabic-value roman-numeral)
-  (cond ((eq? 'm roman-numeral) 1000)
-        ((eq? 'd roman-numeral) 500)
-        ((eq? 'c roman-numeral) 100)
-        ((eq? 'l roman-numeral) 50)
-        ((eq? 'x roman-numeral) 10)
-        ((eq? 'v roman-numeral) 5)
-        ((eq? 'i roman-numeral) 1)
+  (cond ((eq? 'M roman-numeral) 1000)
+        ((eq? 'D roman-numeral) 500)
+        ((eq? 'C roman-numeral) 100)
+        ((eq? 'L roman-numeral) 50)
+        ((eq? 'X roman-numeral) 10)
+        ((eq? 'V roman-numeral) 5)
+        ((eq? 'I roman-numeral) 1)
         (else 0)))
+
+;;; describe-time
+;;; (describe-time 22222) => (6 hours 10 minutes 22 seconds)
+;;; (describe-time 4967189641) => (1 centuries 57 years 20 weeks 6 days 8 hours 54 minutes 1 seconds)
+
+(define (describe-time seconds)
+ ;;;
+)
