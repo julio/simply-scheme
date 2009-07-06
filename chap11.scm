@@ -70,7 +70,7 @@
     
 ;;; copies
 ;;;
-;;; (copies 3 'spam) => (spam spam spam)
+;;; (copies 4 'spam) => (spam spam spam spam)
 
 (define (copies n wd)
   (if (= 0 n)
