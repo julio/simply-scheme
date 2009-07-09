@@ -25,3 +25,19 @@
   
 (define (piglatin-all sent)
   (every pigl sent))
+
+;;; 8.4 choose beatles
+
+(define (choose-beatles condition)
+  (keep condition '(john paul ringo george)))
+
+(define (ends-vowel? beatle)
+  (vowel? (last beatle)))
+  
+;;; 8.5 transform beatles
+
+(define (transform-beatles transformation)
+(every transformation '(john paul ringo george)))
+
+(define (title beatle)
+(word 'Sir- beatle))
