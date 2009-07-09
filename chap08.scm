@@ -41,3 +41,38 @@
 
 (define (title beatle)
 (word 'Sir- beatle))
+
+;;; 8.6 phonetic
+
+(define (words wd)
+  (every phonetic wd))
+
+(define (phonetic letter)
+  (cond 
+    ((eq? letter 'A) 'Alpha)
+    ((eq? letter 'B) 'Bravo)
+    ((eq? letter 'C) 'Charlie)
+    ((eq? letter 'D) 'Delta)
+    ((eq? letter 'E) 'Echo)
+    ((eq? letter 'F) 'Foxtrot)
+    ((eq? letter 'G) 'Golf)
+    ((eq? letter 'H) 'Hotel)
+    ((eq? letter 'I) 'India)
+    ((eq? letter 'J) 'Juliet)
+    ((eq? letter 'K) 'Kilo)
+    ((eq? letter 'L) 'Lima)
+    ((eq? letter 'M) 'Mike)
+    ((eq? letter 'N) 'November)
+    ((eq? letter 'O) 'Oscar)
+    ((eq? letter 'P) 'Papa)
+    ((eq? letter 'Q) 'Quebec)
+    ((eq? letter 'R) 'Romeo)
+    ((eq? letter 'S) 'Sierra)
+    ((eq? letter 'T) 'Tango)
+    ((eq? letter 'U) 'Uniform)
+    ((eq? letter 'V) 'Victor)
+    ((eq? letter 'W) 'Whiskey)
+    ((eq? letter 'X) 'X-ray)
+    ((eq? letter 'Y) 'Yankee)
+    ((eq? letter 'Z) 'Zulu)))
+    
