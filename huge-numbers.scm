@@ -1,13 +1,41 @@
-(define )
+(define (huge-number n)
+  (let ((numbers (number-to-groups-of-three n)))
+    (huge-number-helper numbers (count numbers))))
+
+(define (huge-number-helper groups-of-numbers number-of-groups)
+  (if (<= (count groups-of-numbers) 1)
+    (say-three-digit-number (first groups-of-numbers)) ;; "first" to get the actual word (number), not the sentence
+    (se
+      (say-three-digit-number (first groups-of-numbers))
+      (big-names (first groups-of-numbers) number-of-groups)
+      (huge-number-helper 
+        (bf groups-of-numbers) 
+        (count (bf groups-of-numbers))))))
+  
+;;; order of magnitude based on position
+(define (big-names n position)
+  (print (se '-=-=- n '-=-=-))
+  (if (= "000" n)
+    '()
+    (item position '(nothing thousand million billion trillion quadrillion sextillion octillion nonillion decillion))))
+
+;;; convert a number to a sentence of groups of 3 digits
+(define (number-to-groups-of-three n)
+  (if (<= (count n) 3)
+    (se n)
+    (se (number-to-groups-of-three (bl (bl (bl n)))) (word (last (bl (bl n))) (last (bl n)) (last n)))))
 
 ;;; Say a 3 digit number
 (define (say-three-digit-number sent)
+  (print (se '>>> sent '<<<))
   (cond ((= 0 (count sent)) '())
+        ((= 0 sent) '())
         ((= 1 (count sent)) (se (say-singles sent)))
         ((= 2 (count sent)) (se (say-tens sent)))
         ((= 3 (count sent)) (se (say-singles (first sent)) 'hundred (say-three-digit-number (word (bf sent)))))
         (else 'error1)))
-;;; say 1, 2, ... 9
+
+;;; Say 1, 2, ... 9
 (define (say-singles n)
   (cond ((eq? '0 n) '())
         ((eq? '1 n) 'one)
