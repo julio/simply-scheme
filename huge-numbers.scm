@@ -1,3 +1,6 @@
+;;; TODO
+;;;  numbers are sometimes "000" instead of '000 or (000) and need to add 0 to fix
+;;;  big names need to offset first position. using "nothing" for now
 (define (huge-number n)
   (let ((numbers (number-to-groups-of-three n)))
     (huge-number-helper numbers (count numbers))))
@@ -14,8 +17,7 @@
   
 ;;; order of magnitude based on position
 (define (big-names n position)
-  (print (se '-=-=- n '-=-=-))
-  (if (= "000" n)
+  (if (= 0 (+ 0 n))
     '()
     (item position '(nothing thousand million billion trillion quadrillion sextillion octillion nonillion decillion))))
 
@@ -27,26 +29,24 @@
 
 ;;; Say a 3 digit number
 (define (say-three-digit-number sent)
-  (print (se '>>> sent '<<<))
-  (cond ((= 0 (count sent)) '())
-        ((= 0 sent) '())
-        ((= 1 (count sent)) (se (say-singles sent)))
-        ((= 2 (count sent)) (se (say-tens sent)))
-        ((= 3 (count sent)) (se (say-singles (first sent)) 'hundred (say-three-digit-number (word (bf sent)))))
+  (cond ((< sent 1)    '())
+        ((< sent 10)   (se (say-singles sent)))
+        ((< sent 100)  (se (say-tens (+ 0 sent))))
+        ((< sent 1000) (se (say-singles (first sent)) 'hundred (say-three-digit-number (bf sent))))
         (else 'error1)))
 
 ;;; Say 1, 2, ... 9
 (define (say-singles n)
-  (cond ((eq? '0 n) '())
-        ((eq? '1 n) 'one)
-        ((eq? '2 n) 'two)
-        ((eq? '3 n) 'three)
-        ((eq? '4 n) 'four)
-        ((eq? '5 n) 'five)
-        ((eq? '6 n) 'six)
-        ((eq? '7 n) 'seven)
-        ((eq? '8 n) 'eight)
-        ((eq? '9 n) 'nine)
+  (cond ((eq? '0 (+ 0 n)) '())
+        ((eq? '1 (+ 0 n)) 'one)
+        ((eq? '2 (+ 0 n)) 'two)
+        ((eq? '3 (+ 0 n)) 'three)
+        ((eq? '4 (+ 0 n)) 'four)
+        ((eq? '5 (+ 0 n)) 'five)
+        ((eq? '6 (+ 0 n)) 'six)
+        ((eq? '7 (+ 0 n)) 'seven)
+        ((eq? '8 (+ 0 n)) 'eight)
+        ((eq? '9 (+ 0 n)) 'nine)
         (else (se 'error2 '- n))))
 
 ;;; Say 10, 11, ..., 20, 21, ... 99
