@@ -32,15 +32,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define (remove-once wd sent)
-  (if (empty? sent) 
-    '()
-    (remove-once-helper wd sent #f)))
-    
-(define (remove-once-helper wd sent already-deleted?)
   (cond ((empty? sent) '())
-        ((eq? (first sent) wd) (se (remove-once-helper wd (se (bf sent) #t))
-        ((eq? #t already-deleted?) (remove-once-helper wd (bf sent) already-deleted?))
-        (else (remove-once-helper wd (bf sent) already-deleted?))))
+        ((eq? wd (first sent)) (bf sent))
+        (else (se (first sent) (remove-once wd (bf sent))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
