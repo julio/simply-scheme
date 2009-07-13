@@ -24,12 +24,21 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(define (remove-once wd sent)
-  (cond ((empty? sent) '())
-        ((member? ))
-    (remove-once-helper wd sent)))
+(define (n? wd)
+  (cond ((= 0 (count wd)) #t) ;; not good actually, as (n? '()) returns true
+        ((member? (first wd) '(0 1 2 3 4 5 6 7 8 9)) (and #t (n? (bf wd))))
+        (else #f)))
     
-(define (remove-once-helper wd sent)
-  (if (empty? sent)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define (remove-once wd sent)
+  (if (empty? sent) 
     '()
-    (se )
+    (remove-once-helper wd sent #f)))
+    
+(define (remove-once-helper wd sent already-deleted?)
+  (cond ((empty? sent) '())
+        ((eq? (first sent) wd) (se (remove-once-helper wd (se (bf sent) #t))
+        ((eq? #t already-deleted?) (remove-once-helper wd (bf sent) already-deleted?))
+        (else (remove-once-helper wd (bf sent) already-deleted?))))
+
