@@ -43,10 +43,9 @@
         (else (remove-once-helper wd (bf sent) already-deleted?))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; !!! still in progress as this only sorts a a pair of numbers at a time. 
-;;; (merge-sorted-lists '(1 2) '(10 20)) => '(1 10 2 20) => bad
+
 (define (merge-sorted-lists list1 list2)
   (cond ((empty? list1) list2)
         ((empty? list2) list1)
-        ((<= (first list1) (first list2)) (se (first list1) (first list2) (merge-sorted-lists (bf list1) (bf list2))))
-        (else (se (first list2) (first list1) (merge-sorted-lists (bf list1) (bf list2))))))
+        ((<= (first list1) (first list2)) (se (first list1) (merge-sorted-lists (bf list1) list2)))
+        (else (se (first list2) (merge-sorted-lists list1 (bf list2))))))
